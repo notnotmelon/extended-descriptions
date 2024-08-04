@@ -1,81 +1,109 @@
-[![Release](https://github.com/fgardt/factorio-mod-template/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/fgardt/factorio-mod-template/actions/workflows/release.yml)
-<!--                           ^======[REPLACE THIS]======^                                                                          ^======[REPLACE THIS]======^  -->
+[![Release](https://github.com/notnotmelon/extended-descriptions/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/notnotmelon/extended-descriptions/actions/workflows/release.yml)
 
-# factorio-mod-template
+### Extended Descriptions adds extra information onto tooltips
+- All added information is faithful to vanilla font and color
+- Extended Descriptions does not overwrite any existing descriptions
+- All additions are configurable.
+- Supports all mods
 
-A small Factorio Mod template which also contains GitHub Actions for automatic changelog generation, packaging and releasing to the [Factorio Mod Portal](https://mods.factorio.com)
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Machine sizes
+![](https://mods-data.factorio.com/assets/7118fdc452cdf0b925888127a3d1ab43b3749c47.png)
 
-# How it works
+All machines will have their dimensions added onto their tooltip
+If the size is 1x1, it is not added to the tooltip
 
-This template uses [semantic-release](https://github.com/semantic-release/semantic-release) to automate the changelog generation aswell as packaging and releasing of the mod. \
-To achieve this it analyzes your commit messages to figure out what the new version should be and what to put into the changelog.
-Packaging and releasing to the factorio mod portal is done with [this plugin](https://github.com/fgardt/semantic-release-factorio). \
-Additionally the GitHub Action will also create a release in your repository on GitHub itself.
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Inserter speeds
+![](https://mods-data.factorio.com/assets/2dbe41f6b412e169262047a934b068cf11b291ad.png)
 
-Once you push new commits to the main branch the release action will trigger. \
-First it will analyze all commits since the last release (determined from the last tag) to figure out if a new version should be released and what version it should be. \
-To make this possible you need to follow a commit message convention. The default convention this template uses is [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with the following types:
+All inserters will display their speed in items/second
+An approximation is used for belt to chest
+In order to avoid visual clutter, this is only on the inserter entity, and not inserter items
 
-| Commit type                 | Changelog section |
-| --------------------------- | ----------------- |
-| `feat` or `feature`         | `Features`        |
-| `fix`                       | `Bugfixes`        |
-| `perf` or `performance`     | `Optimizations`   |
-| `compat` or `compatibility` | `Compatibility`   |
-| `balance`                   | `Balancing`       |
-| `graphics`                  | `Graphics`        |
-| `sound`                     | `Sounds`          |
-| `gui`                       | `Gui`             |
-| `info`                      | `Info`            |
-| `locale`                    | `Locale`          |
-| `translate`                 | `Translation`     |
-| `control`                   | `Control`         |
-| `other`                     | `Changes`         |
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Void recipes
+![](https://mods-data.factorio.com/assets/aad47a30a544de38992bed198917126d0cd3fdcf.png)
 
-Because a push to the main branch triggers the release action it is recommended to work on a separate branch until your work is done and then merge that branch into main to release it. \
-_Or you just work locally and if you want to release you push your changes to main, up to you how you want to do it ;)_
+If you can void an item or fluid then that information is added to the tooltip
+It will also tell you where it is voided and how much item/second is destroyed
 
-# How to use
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Productivity indicator
+![](https://mods-data.factorio.com/assets/4f9c53461db6016c05adba37e401ed3e991edcd1.png)
 
-## Repository setup
+If a recipe is affected by productivity, then that is displayed on the tooltip
 
-Click the `Use this template` button and create your own repository.
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Module counts
+![](https://mods-data.factorio.com/assets/a36cfddb809af9fa73ee0865bb7afc975504919f.png)
 
-Once you have your new repository you need to add a Factorio token as a GitHub Actions secret so that the mod releasing can work. \
-To get the token go to [Factorio's website](https://factorio.com/login) and login with your account. \
-Then you need to go to your [profile](https://factorio.com/profile) and generate a new API key. \
-The API key needs `Upload Mods`, `Publish Mods` and `Edit Mods` permissions. Copy the generated key.
+All machines will display their module slot count
 
-Now you need to go to your repository settings > `Secrets and variables` > `Actions` and add a new Repository secret called `FACTORIO_TOKEN` with your copied key as the secret.
+![](https://mods-data.factorio.com/assets/4e78fb1d3314327d1d35acf268f2af3ae8de9d8a.png)
 
-## Mod setup
+If a machine does not accept a type of module then you will be notified on the tooltip
 
-- Swap out the [`LICENSE`](LICENSE) to your own liking _**(especially change out my name for yours)**_
-- Populate the [`info.json`](info.json) file with correct values _(the `version` field gets updated automatically)_
-- Add the corresponding text into [`locale.cfg`](locale/en/locale.cfg)
-- Add a `thumbnail.png` to the root of the repository _([ideally 144x144px](https://wiki.factorio.com/Tutorial:Mod_structure#Files))_
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Fluid fuel
+![](https://mods-data.factorio.com/assets/bb2bf5d1765b1100bdba9e30686c23bfc7b0776d.png)
 
-# Misc
+All fluid fuels will have their fuel density and their pollution multiplier applied to their tooltip
 
-## How the packaging works
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Stack sizes
+![](https://mods-data.factorio.com/assets/780c4ed71f44fa10ff11e677d02bf3b02279fb22.png)
 
-The [`semantic-release-factorio` plugin](https://github.com/fgardt/semantic-release-factorio) uses the `git archive` command to package the mod. \
-That way you can specify what folders / files to exclude from your packaged mod by specifying them in [`.gitattributes`](.gitattributes).
+All items will display their stack sizes
 
-If you want to locally test packaging of your mod you can run the following command:
-```sh
-git archive --format zip --prefix [YOUR-MOD-NAME]/ --worktree-attributes --output [YOUR-MOD-NAME]_[VERSION].zip HEAD
-```
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Solar ratios
+![](https://mods-data.factorio.com/assets/c3feae539d0e8c654a78f8afb61ea47bd9ae238c.png)
 
-## Changing the commit message convention
+![](https://mods-data.factorio.com/assets/a5cd2093321272a75cf8c91592dd070b7a0da5d5.png)
 
-If you want to change the commit message convention you can do so by changing the 2 `preset` fields in the [`.releaserc.json`](.releaserc.json) file. \
-Possible presets are: [`angular`](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular), [`atom`](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-atom), [`codemirror`](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-codemirror), [`ember`](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-ember), [`eslint`](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-eslint), [`express`](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-express), [`jquery`](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-jquery), [`jshint`](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-jshint), [`conventionalcommits`](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-conventionalcommits).
+All solar panels and accumulators will show their ratios to all other solar buildings
+If the perfect ratio is not reasonable, a decimal is used instead
 
-Additionally you also need to modify the worflow file [`.github/workflows/release.yml`](.github/workflows/release.yml) to use the package that corresponds to your chosen preset. \
-Replace `conventional-changelog-conventionalcommits` with `conventional-changelog-[YOUR PRESET]` accordingly.
+Again, in order to avoid visual clutter, this is only on solar entities, and not items
 
-## Need help?
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Resistances
+![](https://mods-data.factorio.com/assets/b699b2411113106779ffd353ceed6b872d279a26.png)
 
-Checkout the [official Factorio Discord](https://discord.gg/factorio) and check the pins in the `#mod-making` channel. \
-There is also the [Lua API documentation](https://lua-api.factorio.com/latest/) and the [modding section in the wiki](https://wiki.factorio.com/Modding).
+Resistances will be shown for military entities
+This includes: cars, tanks, walls, gates, enemy structures, and turrets
+
+First number is a flat decrease, and the second number is a percentage decrease
+final damage = (original damage - first number) * (1 - second number)
+
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Heat stats
+![](https://mods-data.factorio.com/assets/b3c8a3e662360c96125afc22e5ca5ab33f113805.png)
+
+Heat pipes will now show their max heat and their heat loss per tile
+Reactors will also show their max heat
+
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Tank volume
+![](https://mods-data.factorio.com/assets/f5a8b735ce3cbdc8858ea5d51eebaee66614dbef.png)
+
+Pipes, boilers, pumps, ect. will all now show their tank size
+Of course, tanks already show their size normally, so this feature is disabled by default unless they have a bizarre pressure
+
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Radar stats
+![](https://mods-data.factorio.com/assets/24ac8b5f4e3b153386d4b05763e5ceeaeffbe51e.png)
+
+All radars will show their scanning speed, aswell as their ranges
+
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+#### Deadlock's Stacking Beltboxes integration
+![](https://mods-data.factorio.com/assets/0e7cc8dd82e1010e582600e801e6ad84674d4532.png)
+
+This mod works with DSB!
+Any stackable items will display this information on their tooltip
+https://mods.factorio.com/mod/deadlock-beltboxes-loaders
+
+![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
+### [> Check out my other mods! <](https://mods.factorio.com/user/notnotmelon)
