@@ -507,6 +507,7 @@ if settings.startup['ed-voiding'].value then
 				    add_to_description(target_type, target, {
 					    'description.voidable',
 					    machine.localised_name or {'entity-name.' .. machine.name},
+						'[img=entity.' .. machine.name .. ']',
 					    math.floor(0.5 + ingredient.amount / (difficulty.energy_required or 0.5) * 100) / 100
 				    })
 			    end
