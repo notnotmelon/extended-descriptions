@@ -14,7 +14,8 @@ local function add_to_description(type, prototype, localised_string)
 				prototype.localised_description = {
 					'?',
 					{'', machine.localised_description, '\n', localised_string},
-					localised_string
+					localised_string,
+					machine.localised_description
 				}
 				return
 			end
@@ -24,14 +25,17 @@ local function add_to_description(type, prototype, localised_string)
 		prototype.localised_description = {
 			'?',
 			{'', {entity_type .. '-description.' .. place_result}, '\n', localised_string},
-			{'', {type .. '-description.' .. prototype.name}, '\n', localised_string},
-			localised_string
+			{'', {type .. '-description.' .. prototype.name},      '\n', localised_string},
+			localised_string,
+			{entity_type .. '-description.' .. place_result},
+			{type .. '-description.' .. prototype.name}
 		}
 	else
 		prototype.localised_description = {
 			'?',
 			{'', {type .. '-description.' .. prototype.name}, '\n', localised_string},
-			localised_string
+			localised_string,
+			{type .. '-description.' .. prototype.name}
 		}
 	end
 end
